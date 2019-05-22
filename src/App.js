@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 
 class App extends Component {
   state = {
-    hueValue: 0
+    hueValue: 0,
+    saturationValue: 0,
+    lightnessValue: 0
   }
 
   getRandomColor = () => {
@@ -34,7 +36,13 @@ class App extends Component {
   render() {
     return (
       <>
-        <main>
+        <main
+          style={{
+            backgroundColor: `hsl(${this.state.hueValue},${
+              this.state.saturationValue
+            }%,${this.state.lightnessValue}%)`
+          }}
+        >
           <header>This is the Header!</header>
           <section>
             <p>
@@ -72,9 +80,7 @@ class App extends Component {
             />{' '}
             <label for="lightness">Lightness</label>
           </div>
-          <h1>
-            HSL :<span> </span>
-          </h1>
+          <h1>HSL</h1>
           <p>New Random Color Button</p>
           <button onClick={this.getRandomColor}>Select </button>
           <p>Random Color Value:</p>
