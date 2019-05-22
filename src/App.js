@@ -6,9 +6,12 @@ class App extends Component {
     saturationValue: 0,
     lightnessValue: 0
   }
-
-  getRandomColor = () => {
-    return Math.floor(Math.random() * 16777215).toString(16)
+  randomColor = () => {
+    this.setState({
+      hueValue: Math.ceil(Math.random() * 360),
+      saturationValue: Math.ceil(Math.random() * 100),
+      lightnessValue: Math.ceil(Math.random() * 100)
+    })
   }
 
   hueChangeStart = event => {
@@ -82,7 +85,7 @@ class App extends Component {
           </div>
           <h1>HSL</h1>
           <p>New Random Color Button</p>
-          <button onClick={this.getRandomColor}>Select </button>
+          <button onClick={this.randomColor}>Select </button>
           <p>Random Color Value:</p>
         </main>
       </>
