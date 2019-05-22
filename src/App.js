@@ -10,6 +10,7 @@ class App extends Component {
   componentDidMount() {
     this.randomColor()
   }
+
   randomColor = () => {
     this.setState({
       hueValue: Math.ceil(Math.random() * 360),
@@ -50,7 +51,7 @@ class App extends Component {
             }%,${this.state.lightnessValue}%)`
           }}
         >
-          <header>This is the Header!</header>
+          <h1>Colors are Fun!</h1>
           <section>
             <p>
               <span />
@@ -58,6 +59,8 @@ class App extends Component {
           </section>
           <div>
             <input
+              value={this.state.hueValue}
+              onValueChange={value => this.setState({ value })}
               onChange={this.hueChangeStart}
               type="range"
               min="0"
@@ -67,6 +70,8 @@ class App extends Component {
           </div>
           <div>
             <input
+              value={this.state.saturationValue}
+              onValueChange={value => this.setState({ value })}
               onChange={this.saturationChangeStart}
               type="range"
               id="start"
@@ -78,6 +83,8 @@ class App extends Component {
           </div>
           <div>
             <input
+              value={this.state.lightnessValue}
+              onValueChange={value => this.setState({ value })}
               onChange={this.lightnessChangeStart}
               type="range"
               id="start"
@@ -87,10 +94,12 @@ class App extends Component {
             />{' '}
             <label for="lightness">Lightness</label>
           </div>
-          <h1>HSL</h1>
+          <h1>
+            HSL:{this.state.hueValue}/{this.state.saturationValue}%/
+            {this.state.lightnessValue}%
+          </h1>
           <p>New Random Color Button</p>
           <button onClick={this.randomColor}>Select </button>
-          <p>Random Color Value:</p>
         </main>
       </>
     )
