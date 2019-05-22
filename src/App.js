@@ -6,6 +6,10 @@ class App extends Component {
     saturationValue: 0,
     lightnessValue: 0
   }
+
+  componentDidMount() {
+    this.randomColor()
+  }
   randomColor = () => {
     this.setState({
       hueValue: Math.ceil(Math.random() * 360),
